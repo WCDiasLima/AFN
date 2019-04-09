@@ -1,3 +1,8 @@
+/*
+Copyright 2019 Joyce Emanuele, Wellington Cesar
+This file is part of AFN.
+*/
+
 let temp = new Set();
 
 class Autonomo {
@@ -25,8 +30,8 @@ class Autonomo {
         temp.add(this.delta[this.estadoAtual[p]][this.posAlfa(letra)][pp]); //coloco no conjunto obs. nao vai coloar valores repitidos pois é um conj
       }
     }
-    this.estadoAtual = []; //depois q pecorri eu tenho q add os novos estados, entao zero ele 
-    for (let item of temp) this.estadoAtual.push(item); //insere cada item do conjunto no array 
+    this.estadoAtual = []; //depois q pecorri eu tenho q add os novos estados, entao zero ele
+    for (let item of temp) this.estadoAtual.push(item); //insere cada item do conjunto no array
   }
 
   posAlfa(letra) {

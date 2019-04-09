@@ -1,3 +1,8 @@
+/*
+Copyright 2019 Joyce Emanuele, Wellington Cesar
+This file is part of AFN.
+*/
+
 var larg = 29;
 
 class Fita {
