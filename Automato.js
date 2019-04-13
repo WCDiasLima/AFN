@@ -27,7 +27,7 @@ class Autonomo {
 
       for (let pp = 0; pp < this.delta[this.estadoAtual[p]][this.posAlfa(letra)].length; pp++) { // pecorrer cada conj de um estado pra determinada letra do alfabeto
 
-        temp.add(this.delta[this.estadoAtual[p]][this.posAlfa(letra)][pp]); //coloco no conjunto obs. nao vai coloar valores repitidos pois é um conj
+        temp.add(this.delta[this.estadoAtual[p]][this.posAlfa(letra)][pp]); //coloco no conjunto obs. nao vai colocar valores repetidos pois é um conj
       }
     }
     this.estadoAtual = []; //depois q pecorri eu tenho q add os novos estados, entao zero ele
