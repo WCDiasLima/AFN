@@ -5,3 +5,13 @@ html, body {
 canvas {
   display: block;
 }
+.um {
+  display: inline-block;
+  width: 300px;
+}
+.dois {
+  display: inline-block;
+}
+.tres {
+  display: inline-block;
+}
