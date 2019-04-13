@@ -21,17 +21,17 @@ class Autonomo {
       return;
     }
 
-    temp.clear(); //tenho q zerar o conjunto para depois eu colocar os novos cojun. nele
+    temp.clear();
 
-    for (let p = 0; p < this.estadoAtual.length; p++) { //laço pra pecorrer todos os estados atuais
+    for (let p = 0; p < this.estadoAtual.length; p++) {
 
-      for (let pp = 0; pp < this.delta[this.estadoAtual[p]][this.posAlfa(letra)].length; pp++) { // pecorrer cada conj de um estado pra determinada letra do alfabeto
+      for (let pp = 0; pp < this.delta[this.estadoAtual[p]][this.posAlfa(letra)].length; pp++) { 
 
-        temp.add(this.delta[this.estadoAtual[p]][this.posAlfa(letra)][pp]); //coloco no conjunto obs. nao vai colocar valores repetidos pois é um conj
+        temp.add(this.delta[this.estadoAtual[p]][this.posAlfa(letra)][pp]);
       }
     }
-    this.estadoAtual = []; //depois q pecorri eu tenho q add os novos estados, entao zero ele
-    for (let item of temp) this.estadoAtual.push(item); //insere cada item do conjunto no array
+    this.estadoAtual = [];
+    for (let item of temp) this.estadoAtual.push(item);
   }
 
   posAlfa(letra) {
@@ -39,6 +39,69 @@ class Autonomo {
       if (this.alfabeto[i] == letra) return i;
     }
     return -1;
+  }
+  
+  ligacoes(){
+    let raio = height / 2 - 80, x, y;
+    let coor = [];
+    let alf =[];
+    let i,j,m;
+      
+    for(i=0;i<this.qtdEstados;i++){
+       alf[i]=[];
+      for (j=0;j<this.qtdEstados;j++){
+        alf[i][j]=[];
+    }}
+     
+    for(i = 0; i < this.qtdEstados; i++) {
+      x = raio * cos(map(i, 0, this.qtdEstados, 0, TAU)) + width / 2;
+      y = raio * sin(map(i, 0, this.qtdEstados, 0, TAU)) + height / 2 - 50;
+        coor[i]=[x,y];}
+    
+    for(i=0;i<this.qtdEstados;i++){
+      for (j=0;j<this.alfabeto.length;j++){
+        for(m=0;m<this.delta[i][j].length;m++){
+        alf[i][this.delta[i][j][m]][alf[i][this.delta[i][j][m]].length]= this.alfabeto[j];
+    } } }
+    
+    let k=0;
+    for(i=0;i<this.qtdEstados;i++){
+      for(j=0;j<this.alfabeto.length;j++){
+        for(m=0;m<this.delta[i][j].length;m++){
+        line(coor[i][k],coor[i][k+1],coor[this.delta[i][j][m]][k],coor[this.delta[i][j][m]][k+1])
+          
+          if(i==this.delta[i][j][m]){
+           let PointM;
+           push();
+           if(coor[i][k+1]<height/2){
+            triangle(coor[i][k], coor[i][k+1]-25, coor[i][k]+10, coor[i][k+1]-35, coor[i][k]-10, coor[i][k+1]-35);
+            PointM = createVector(((coor[i][k]+10)+(coor[i][k]-10))/2+15,((coor[i][k+1]-35)+(coor[i][k+1]-35))/2); 
+          }
+           else{
+            triangle(coor[i][k], coor[i][k+1]+25, coor[i][k]+10, coor[i][k+1]+35, coor[i][k]-10, coor[i][k+1]+35);
+            PointM = createVector(((coor[i][k]+10)+(coor[i][k]-10))/2,((coor[i][k+1]+35)+(coor[i][k+1]+35))/2);
+          }
+          push();
+          textSize(20);
+          text(alf[i][this.delta[i][j]],PointM.x,PointM.y+10);
+          pop();
+          pop();
+         }
+         else{
+          push();
+          var angulo = atan2(coor[i][k+1]-coor[this.delta[i][j][m]][k+1],coor[i][k]-coor[this.delta[i][j][m]][k]);
+          let pM = createVector((coor[i][k]+coor[this.delta[i][j][m]][k])/2,(coor[i][k+1]+coor[this.delta[i][j][m]][k+1])/2);
+          
+          translate((pM.x+coor[this.delta[i][j][m]][k])/2,(pM.y+coor[this.delta[i][j][m]][k+1])/2); 
+          rotate(angulo-HALF_PI);
+          triangle(-10*0.5, 10, 10*0.5, 10, 0, -10/2);  
+          pop();
+        
+          push();
+          textSize(20);
+          text(alf[i][this.delta[i][j][m]],(pM.x+coor[this.delta[i][j][m]][k])/2,(pM.y+coor[this.delta[i][j][m]][k+1])/2+20);
+          pop(); } 
+    } } }
   }
 
   mostrar() {
@@ -48,7 +111,7 @@ class Autonomo {
 
     temp.clear();
 
-    temp = new Set(this.estadoAtual); //coloco em um coj o array pra usar a função has
+    temp = new Set(this.estadoAtual);
 
 
     for (let i = 0; i < this.qtdEstados; i++) {
