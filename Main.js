@@ -42,6 +42,7 @@ function setup() {
 }
 
 function draw() {
+    aut.ligacoes();
     fita.mostrar();
     aut.mostrar();
     // aut.passo(fita.letra());
