@@ -36,7 +36,7 @@ function setup() {
 	textSize(50);
 
 	//frameRate(2);//Letras por segundos
-	fita = new Fita("001");
+	fita = new Fita("Não iniciado");
 	aut = new Autonomo(arquivo);
 	som = new p5.Oscillator();
 
