@@ -129,7 +129,15 @@ class Autonomo {
 			for (j = 0; j < this.alfabeto.length; j++) {
 				for (m = 0; m < this.delta[i][j].length; m++) {
 					line(coor[i][k], coor[i][k + 1], coor[this.delta[i][j][m]][k], coor[this.delta[i][j][m]][k + 1])
-
+					
+					if(i===this.estadoInicial[0]) {///seta do estado inicial
+                                          push();
+                                          line(coor[i][k],coor[i][k+1],coor[i][k],coor[i][k+1]+60);
+                                          fill(color(100, 100, 100));
+                                          triangle(coor[i][k],coor[i][k+1]+30,coor[i][k]+10,coor[i][k+1]+50,coor[i][k]-10,coor[i][k+1]+50);
+                                          pop();
+                                         }
+					
 					if (i == this.delta[i][j][m]) {
 						let PointM;
 						push();
@@ -142,7 +150,13 @@ class Autonomo {
 						}
 						push();
 						textSize(20);
+						if(coor[i][k]<width/2){
+							text(alf[i][this.delta[i][j][m]], PointM.x-70, PointM.y + 10);
+						}
+						else{
 						text(alf[i][this.delta[i][j][m]], PointM.x, PointM.y + 10);
+						}
+						
 						pop();
 						pop();
 					} else {
