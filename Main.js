@@ -23,8 +23,8 @@ let aceito = false;
 let estado = 'p'; //(p)arado, (e)xecutando, (a)ceito, (r)ejeitado e (s)ímbolo desconhecido
 
 function preload() {
-	//Arquivo de autômato disponível para edição em https://www.npoint.io/docs/47de07a0bd5255cdcf78
-	arquivo = loadJSON("https://api.npoint.io/47de07a0bd5255cdcf78");
+	//Arquivo de autômato disponível para edição em https://www.npoint.io/docs/5667657fa6ea86596516
+	arquivo = loadJSON("https://www.npoint.io/docs/5667657fa6ea86596516");
 }
 
 function setup() {
