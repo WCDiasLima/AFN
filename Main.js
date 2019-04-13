@@ -24,7 +24,7 @@ let estado = 'p'; //(p)arado, (e)xecutando, (a)ceito, (r)ejeitado e (s)ímbolo d
 
 function preload() {
 	//Arquivo de autômato disponível para edição em https://www.npoint.io/docs/5667657fa6ea86596516
-	arquivo = loadJSON("https://www.npoint.io/docs/5667657fa6ea86596516");
+	arquivo = loadJSON("https://api.npoint.io/5667657fa6ea86596516");
 }
 
 function setup() {
