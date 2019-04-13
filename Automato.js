@@ -142,7 +142,7 @@ class Autonomo {
 						}
 						push();
 						textSize(20);
-						text(alf[i][this.delta[i][j]], PointM.x, PointM.y + 10);
+						text(alf[i][this.delta[i][j][m], PointM.x, PointM.y + 10);
 						pop();
 						pop();
 					} else {
