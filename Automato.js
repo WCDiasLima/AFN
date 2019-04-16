@@ -15,7 +15,7 @@ class Autonomo {
 		this.estadoAtual = [...this.estadoInicial];
 		this.estadosFinais = new Set(arq.estadosFinais);
 
-		if(width > height - 80) this.raio = height / 2 - 80;
+		if(width > height - 80) this.raio = height / 2 - 100;
 		else this.raio = width / 2 - 25;
 	}
 
