@@ -47,8 +47,8 @@ class Autonomo {
 
 	mostrar() {
 		let x, y;
-		temp = new Set(this.estadoAtual);
 
+		temp = new Set(this.estadoAtual);
 		strokeWeight(1);
 		noStroke();
 		fill(0);
@@ -89,8 +89,10 @@ class Autonomo {
 	termino(fimcadeia) {
 		window.navigator.vibrate(400);
 		if(estado !== 'e') return;
+
 		som.start();
 		som.stop(0.5);
+
 		if(fimcadeia && this.estadoAtual.filter(x => this.estadosFinais.has(x)).length > 0) {
 			estado = 'a';
 			som.freq(500);
@@ -106,6 +108,7 @@ class Autonomo {
 		let coor = [];
 		let alf = [];
 		let i, j, m;
+
 		stroke(0);
 
 		for(i = 0; i < this.qtdEstados; i++) {
@@ -147,7 +150,7 @@ class Autonomo {
 						}
 						push();
 						textSize(20);
-						text(alf[i][this.delta[i][j][m]], PointM.x, PointM.y + 10);
+						text(alf[i][this.delta[i][j]], PointM.x, PointM.y + 10);
 						pop();
 						pop();
 					} else {
