@@ -19,7 +19,6 @@
 
 let fita, aut, arquivo, som;
 let botao, caixa, entrada;
-let aceito = false;
 let estado = 'p'; //(p)arado, (e)xecutando, (a)ceito, (r)ejeitado e (s)ímbolo desconhecido
 
 function preload() {
